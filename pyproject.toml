@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dd-extract"
+version = "0.1.0"
+authors = [
+  { name="Digital Duck & Dog Team", email="info@digitalduck.org" },
+]
+description = "Abstraction layer for text extraction from PDF to markdown."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pypdf>=3.0",
+    "httpx>=0.24",
+    "click>=8.0",
+]
+
+[project.optional-dependencies]
+docling = ["docling"]
+
+[project.urls]
+"Homepage" = "https://github.com/digital-duck/dd-extract"
+
+[project.scripts]
+dd-extract = "dd_extract.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dd_extract*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
